@@ -11,7 +11,6 @@ def get_invoice_count(sales_order):
     })
     return count
 
-
 @frappe.whitelist()
 def make_sales_invoice(sales_order, invoice_type):
     """Creates a Sales Invoice of given type linked to the Sales Order"""

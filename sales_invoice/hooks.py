@@ -14,3 +14,12 @@ doc_events = {
         "on_cancel": "sales_invoice.api.on_cancel_sales_order"
     }
 }
+
+fixtures = [
+    {
+        "dt" :"Custom Field",
+        "filters":[
+            ["module", "=", "sales_invoice"]
+        ]
+    }
+]
