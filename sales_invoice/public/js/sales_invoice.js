@@ -34,10 +34,12 @@ function create_custom_invoice(frm, invoice_type) {
             invoice_type: invoice_type
         },
         freeze: true,
-        freeze_message: __('Creating Invoice...'),
+        freeze_message: __('Preparing Invoice...'),
         callback: function(r) {
             if (r.message) {
-                frappe.set_route("Form", "Sales Invoice", r.message);
+                // frappe.set_route("Form", "Sales Invoice", r.message);
+                let docs = frappe.model.sync(r.message);
+                frappe.set_route("Form", docs[0].doctype, docs[0].name);
             }
         }
     });

@@ -64,8 +64,9 @@ def make_sales_invoice(sales_order, invoice_type):
             "so_detail": item.name
         })
 
-    si.insert(ignore_permissions=True)
-    return si.name
+    # si.insert(ignore_permissions=True)
+    # return si.name
+    return si.as_dict()
 
 
 @frappe.whitelist()
