@@ -42,7 +42,8 @@ def make_sales_invoice(sales_order, invoice_type):
 
     label = "Duty Invoice" if invoice_type == DUTY_INVOICE else "Freight Certificate"
     si.remarks = f"{label} | SO: {sales_order}"
-    si.title = label
+    # si.title = label
+    si.title = so.customer
 
     si.debit_to = frappe.db.get_value("Company", company, "default_receivable_account")
 
